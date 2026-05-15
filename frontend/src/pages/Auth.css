@@ -210,3 +210,8 @@
   50% { transform: translateY(-15px); }
   100% { transform: translateY(0px); }
 }
+
+@media (max-width: 480px) {
+  .auth-form-wrapper { padding: 1rem; }
+  .auth-card { padding: 2rem 1.5rem; border-radius: 16px; }
+}

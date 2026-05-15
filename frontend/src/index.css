@@ -115,3 +115,8 @@ ul { list-style: none; }
 .badge-warning { background-color: #fef3c7; color: #92400e; }
 .badge-danger { background-color: #fee2e2; color: #991b1b; }
 .badge-default { background-color: #f3f4f6; color: #374151; }
+
+@media (max-width: 768px) {
+  .app-container { flex-direction: column; height: auto; min-height: 100vh; }
+  .page-content { padding: 1rem; overflow: visible; }
+}

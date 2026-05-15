@@ -126,3 +126,8 @@
   text-align: center;
   font-size: 0.75rem;
 }
+
+@media (max-width: 768px) {
+  .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border-color); }
+  .sidebar-scroll { max-height: 200px; }
+}

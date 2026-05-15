@@ -331,3 +331,10 @@
   font-weight: 600;
   font-size: 0.875rem;
 }
+
+@media (max-width: 768px) {
+  .preview-layout { flex-direction: column; }
+  .template-sidebar, .actions-sidebar { width: 100%; max-width: 100%; }
+  .document-wrapper { padding: 1rem; overflow-x: auto; }
+  .a4-document { transform: scale(0.6); transform-origin: top left; margin-bottom: -30%; }
+}
