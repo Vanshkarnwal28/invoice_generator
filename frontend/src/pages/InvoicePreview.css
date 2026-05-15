@@ -334,7 +334,10 @@
 
 @media (max-width: 768px) {
   .preview-layout { flex-direction: column; }
-  .template-sidebar, .actions-sidebar { width: 100%; max-width: 100%; }
-  .document-wrapper { padding: 1rem; overflow-x: auto; }
-  .a4-document { transform: scale(0.6); transform-origin: top left; margin-bottom: -30%; }
+  .template-sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border-color); }
+  .actions-sidebar { width: 100%; border-left: none; border-top: 1px solid var(--border-color); }
+  .document-center { padding: 1rem; overflow-x: auto; align-items: flex-start; }
+  .document-wrapper { min-width: 210mm; padding: 10mm; }
+  .doc-toolbar { width: 100%; min-width: 210mm; }
+  .a4-document { transform: none; margin-bottom: 0; }
 }
