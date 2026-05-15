@@ -341,3 +341,38 @@
   .doc-toolbar { width: 100%; min-width: 210mm; }
   .a4-document { transform: none; margin-bottom: 0; }
 }
+
+/* --- VINTAGE TEMPLATE --- */
+.template-vintage {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #fcfbf7;
+  color: #3e3832;
+}
+.template-vintage::before {
+  content: '';
+  position: absolute;
+  top: 5mm; left: 5mm; right: 5mm; bottom: 5mm;
+  border: 4px double #8b7355;
+  pointer-events: none;
+}
+.template-vintage .doc-header { border-bottom: 2px solid #8b7355; padding-bottom: 1rem; }
+.template-vintage .doc-header h2 { color: #8b7355; text-transform: uppercase; letter-spacing: 2px; }
+.template-vintage .invoice-details { border: 1px dashed #8b7355; background-color: #f6eedf; color: #5c4e3c; }
+.template-vintage .doc-items-table th { border-top: 2px solid #8b7355; border-bottom: 2px solid #8b7355; color: #8b7355; font-style: italic; }
+.template-vintage .doc-items-table td { border-bottom: 1px dashed #d8cbb8; }
+.template-vintage .watermark { color: rgba(139, 115, 85, 0.05); font-family: 'Georgia', serif; }
+
+/* --- DMART TEMPLATE --- */
+.template-dmart {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #ffffff;
+  color: #000000;
+}
+.template-dmart .doc-header { flex-direction: column; align-items: center; border-bottom: 1px dashed #000; text-align: center; }
+.template-dmart .doc-header h2 { color: #000; font-size: 1.5rem; margin-bottom: 0.5rem; }
+.template-dmart .doc-recipient-badge { display: none; }
+.template-dmart .doc-meta { flex-direction: column; align-items: center; text-align: center; gap: 1rem; border-bottom: 1px dashed #000; padding-bottom: 1rem; margin-bottom: 1rem; }
+.template-dmart .invoice-details { border: none; width: 100%; text-align: center; padding: 0; }
+.template-dmart .doc-items-table th { border-top: 1px dashed #000; border-bottom: 1px dashed #000; text-transform: uppercase; font-size: 0.85rem; padding: 0.25rem; }
+.template-dmart .doc-items-table td { font-size: 0.85rem; padding: 0.25rem; }
+.template-dmart .item-desc, .template-dmart .tax-rate-sub { font-size: 0.75rem; }

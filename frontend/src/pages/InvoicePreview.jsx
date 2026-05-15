@@ -15,6 +15,7 @@ const InvoicePreview = () => {
   const queryParams = new URLSearchParams(location.search);
   const autoPrint = queryParams.get('autoprint');
 
+  const [selectedTemplate, setSelectedTemplate] = useState('modern');
   const [invoice, setInvoice] = useState(null);
   const [loading, setLoading] = useState(true);
   const documentRef = useRef();
@@ -99,17 +100,17 @@ const InvoicePreview = () => {
         <div className="template-sidebar">
           <Link to="/sales" className="back-link"><ChevronLeft size={16} /> Select your favourite template!</Link>
           <div className="template-list">
-            <div className="template-item active">
+            <div className={`template-item ${selectedTemplate === 'modern' ? 'active' : ''}`} onClick={() => setSelectedTemplate('modern')}>
               <div className="template-thumb modern-thumb"></div>
-              <span>Modern</span>
+              <span>Modern {selectedTemplate === 'modern' && <CheckCircle2 size={14} className="active-icon" color="#10b981" />}</span>
             </div>
-            <div className="template-item">
+            <div className={`template-item ${selectedTemplate === 'vintage' ? 'active' : ''}`} onClick={() => setSelectedTemplate('vintage')}>
               <div className="template-thumb vintage-thumb"></div>
-              <span>Vintage <CheckCircle2 size={14} className="active-icon" color="#10b981" /></span>
+              <span>Vintage {selectedTemplate === 'vintage' && <CheckCircle2 size={14} className="active-icon" color="#10b981" />}</span>
             </div>
-            <div className="template-item">
+            <div className={`template-item ${selectedTemplate === 'dmart' ? 'active' : ''}`} onClick={() => setSelectedTemplate('dmart')}>
               <div className="template-thumb dmart-thumb"></div>
-              <span>DMart</span>
+              <span>DMart {selectedTemplate === 'dmart' && <CheckCircle2 size={14} className="active-icon" color="#10b981" />}</span>
             </div>
           </div>
         </div>
@@ -135,7 +136,7 @@ const InvoicePreview = () => {
           
           <div className="document-wrapper">
             {/* The Actual A4 Document that gets printed */}
-            <div className="a4-document" ref={documentRef}>
+            <div className={`a4-document template-${selectedTemplate}`} ref={documentRef}>
               <div className="doc-header">
                 <h2>TAX INVOICE</h2>
                 <div className="doc-recipient-badge">ORIGINAL FOR RECIPIENT</div>
