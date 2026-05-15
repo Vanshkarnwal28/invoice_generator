@@ -1,0 +1,128 @@
+.sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.workspace-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.workspace-avatar {
+  background: #fed7aa;
+  color: #c2410c;
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.workspace-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.sidebar-scroll {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sidebar-nav {
+  padding: 1rem 0;
+}
+
+.nav-group {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-group:last-child { border-bottom: none; }
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1.5rem;
+  color: var(--text-light);
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.nav-item:hover {
+  background-color: var(--secondary-color);
+  color: #111827;
+}
+
+.nav-item.active {
+  color: var(--primary-color);
+}
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem 0 0.5rem 3.5rem;
+}
+
+.submenu-item {
+  padding: 0.35rem 0;
+  font-size: 0.875rem;
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+.submenu-item.active, .submenu-item:hover {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.sidebar-footer {
+  padding: 0 0 1.5rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-nav { padding: 1rem 0; }
+.footer-nav .nav-item { padding: 0.4rem 1.5rem; font-size: 0.85rem; }
+.footer-nav .nav-item svg { color: var(--text-muted); }
+
+.offer-banner {
+  margin: 0 1rem;
+  padding: 1rem;
+  background-color: #f9fafb;
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-size: 0.75rem;
+}

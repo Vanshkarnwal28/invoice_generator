@@ -1,0 +1,77 @@
+.navbar {
+  height: 60px;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 1.5rem;
+  gap: 2rem;
+}
+
+.navbar-search {
+  position: relative;
+  width: 500px;
+  max-width: 50%;
+  margin-right: auto;
+}
+
+.navbar-search input {
+  width: 100%;
+  padding: 0.5rem 3rem 0.5rem 2.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: #ffffff;
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: var(--text-dark);
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+.shortcut {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  background: var(--background-main);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover { color: var(--text-dark); }
+
+.profile-btn {
+  background: var(--primary-color);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.profile-btn:hover { color: white; background: var(--primary-hover); }

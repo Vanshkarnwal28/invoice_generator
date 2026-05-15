@@ -1,0 +1,81 @@
+.create-invoice .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.invoice-form {
+  padding: 2.5rem;
+  background: #ffffff;
+}
+
+.form-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.items-table-container {
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1px;
+  background: var(--surface-bg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.items-table th {
+  background-color: var(--primary-light);
+  color: var(--primary-hover);
+  font-weight: 700;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.invoice-footer {
+  display: flex;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.notes-section {
+  flex: 2;
+}
+
+.notes-section .form-control {
+  background-color: #f8fafc;
+  border: 1px dashed var(--border-color);
+}
+.notes-section .form-control:focus {
+  background-color: #ffffff;
+  border-style: solid;
+}
+
+.summary-section {
+  flex: 1;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.total-row {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  background: var(--primary-light);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-top: 1.5rem;
+  align-items: center;
+}
