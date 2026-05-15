@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api';
 import { useReactToPrint } from 'react-to-print';
 import html2pdf from 'html2pdf.js';
 import { 
@@ -22,7 +22,7 @@ const InvoicePreview = () => {
   useEffect(() => {
     const fetchInvoice = async () => {
       try {
-        const response = await axios.get(`http://localhost:5001/api/invoices/${id}`);
+        const response = await api.get(`/invoices/${id}`);
         setInvoice(response.data);
       } catch (error) {
         console.warn('Backend unavailable, using mock data for print preview.');
@@ -196,12 +196,12 @@ const InvoicePreview = () => {
                       <td>{index + 1}</td>
                       <td>
                         <strong>{item.name}</strong>
-                        <div className="item-desc">Create your first invoice with ease using our sample product!</div>
+                        {item.description && <div className="item-desc">{item.description}</div>}
                       </td>
                       <td>{item.hsn || '00000000'}</td>
-                      <td style={{textAlign: 'right'}}>{item.price?.toFixed(2)}<br/><span className="tax-rate-sub">{item.price?.toFixed(2)} (-1%)</span></td>
+                      <td style={{textAlign: 'right'}}>{(item.unitPrice || 0).toFixed(2)}<br/><span className="tax-rate-sub">{(item.unitPrice || 0).toFixed(2)} (-{item.discount || 0}%)</span></td>
                       <td style={{textAlign: 'right'}}>{item.quantity}</td>
-                      <td style={{textAlign: 'right'}}>{(item.price * item.quantity).toFixed(2)}</td>
+                      <td style={{textAlign: 'right'}}>{((item.unitPrice || 0) * item.quantity).toFixed(2)}</td>
                     </tr>
                   ))}
                 </tbody>
