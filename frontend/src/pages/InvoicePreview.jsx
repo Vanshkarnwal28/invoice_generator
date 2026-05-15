@@ -47,7 +47,6 @@ const InvoicePreview = () => {
   const handlePrint = useReactToPrint({
     contentRef: documentRef,
     documentTitle: `Invoice_${invoice?.invoiceNumber || 'Unknown'}`,
-    onAfterPrint: () => triggerAutoSend()
   });
 
   useEffect(() => {
@@ -68,31 +67,18 @@ const InvoicePreview = () => {
       html2canvas: { scale: 2, useCORS: true },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
-    html2pdf().set(opt).from(element).save().then(() => {
-      triggerAutoSend();
-    });
-  };
-
-  const triggerAutoSend = () => {
-    const subject = encodeURIComponent(`Invoice ${invoice?.invoiceNumber || ''} from afc`);
-    const body = encodeURIComponent(`Hello ${invoice?.customer?.name || 'Customer'},\n\nPlease find attached the invoice ${invoice?.invoiceNumber || ''} for your recent purchase. (Remember to manually attach the downloaded PDF file!).\n\nThank you for your business!`);
-    const waText = encodeURIComponent(`Hello ${invoice?.customer?.name || 'Customer'},\n\nHere is your invoice ${invoice?.invoiceNumber || ''}. I will attach the PDF file to this message shortly. Please let me know if you have any questions!`);
-    
-    setTimeout(() => {
-      window.open(`https://wa.me/?text=${waText}`, '_blank');
-    }, 500);
-
-    setTimeout(() => {
-      window.location.href = `mailto:${invoice?.customer?.email || ''}?subject=${subject}&body=${body}`;
-    }, 1500);
+    html2pdf().set(opt).from(element).save();
   };
 
   const handleEmailSend = () => {
-    handleDownloadPDF();
+    const subject = encodeURIComponent(`Invoice ${invoice?.invoiceNumber || ''} from afc`);
+    const body = encodeURIComponent(`Hello ${invoice?.customer?.name || 'Customer'},\n\nPlease find attached the invoice ${invoice?.invoiceNumber || ''} for your recent purchase.\n\nThank you for your business!`);
+    window.location.href = `mailto:${invoice?.customer?.email || ''}?subject=${subject}&body=${body}`;
   };
 
   const handleWhatsappSend = () => {
-    handleDownloadPDF();
+    const waText = encodeURIComponent(`Hello ${invoice?.customer?.name || 'Customer'},\n\nHere is your invoice ${invoice?.invoiceNumber || ''}. Please let me know if you have any questions!`);
+    window.open(`https://wa.me/?text=${waText}`, '_blank');
   };
 
   if (loading) return <div className="loading-state">Loading Invoice Preview...</div>;
